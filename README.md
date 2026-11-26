@@ -1,5 +1,18 @@
 # Perception World
 
+## Real-scene pipeline: step 1
+
+Prepare a photo, image sequence, or video for object-based reconstruction:
+
+```sh
+pip install -e '.[capture]'
+perception-capture prepare /path/to/video.mp4 --output runs/captures/scene
+```
+
+This exports normalized frames, a contact sheet, and provenance metadata. An optional SAM 3 adapter exports object masks and tracks on a CUDA machine; GPU inference is not yet validated here. See [capture setup and output format](docs/capture.md). Camera estimation and 3D reconstruction are the next stage.
+
+## Original navigation testbed
+
 A small, camera-first environment for testing fast visual robot policies and learning world models. Start with a robot navigating to a named box; add richer physics and household tasks after the observation/action loop works.
 
 **Current scope:** a deterministic, planar navigation simulator with a perspective ray-cast RGB camera. This is an environment scaffold, not a trained model, full 3D renderer, or validated real-robot simulator.
