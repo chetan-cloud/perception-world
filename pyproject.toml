@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perception-world"
+version = "0.1.0"
+description = "A camera-first randomized room testbed for fast robot policies and world models"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "gymnasium>=1.0,<2", "pillow>=10,<13"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+perception-demo = "perception.demo:main"
+
+[tool.setuptools.packages.find]
+include = ["perception*"]
